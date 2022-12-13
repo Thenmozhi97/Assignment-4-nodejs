@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function myFunction(){
+        var selectedIndex = document.getElementById("form_action").selectedIndex;
+        var actionChangeTo = document.getElementsByTagName("option")[selectedIndex].value;
+
+        if(actionChangeTo !== ""){
+            document.getElementById("form_id").action = actionChangeTo;
+            document.getElementById("form_id").submit();
+        }
+    }
+</script>
+<body>
+    <h3>Hello World!</h3>
+    <form id="form_id" method="post">
+
+    <input type="text" name="num1" placeholder="num 1"/>
+    <input type="text" name="num2" placeholder="num 2"/>
+
+    <select id="form_action" onchange="select_change()" >
+        <option value="" >Set form action</option>
+        <option value="/add" >Add</option>
+        <option value="/sub" >Sub</option>
+        <option value="/multiply" >Multiply</option>
+        <option value="/divide" >Divide</option>
+    </select>
+    
+    <input type="submit" value="Submit" onclick="myFunction()"/>
+
+    </form>
+
+</body>
+</html>
